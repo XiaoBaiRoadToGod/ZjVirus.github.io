@@ -1,0 +1,870 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angular," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/avatar.jpg?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular指令">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/angular/index.html">
+<meta property="og:site_name" content="小白 Blog">
+<meta property="og:description" content="这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……">
+<meta property="og:updated_time" content="2016-11-02T13:38:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angular指令">
+<meta name="twitter:description" content="这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'ee227cbfc9b16ce16f59c0669c35acce',
+      author: 'ZjVirus'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/02/angular/"/>
+
+
+  <title> angular指令 | 小白 Blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小白 Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">善有善报 恶有恶报 不是不报 是你这个代码还有bug</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                angular指令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T13:06:18+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/02/angular/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/angular/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <font size="4">    这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……</font><br><br><a id="more"></a><br><font size="6" color="#6633cc">指令是什么</font>
+
+<p>第一：是一个dom元素标记（元素名，属性，css类，注释）<br>第二：让编译器（compiler）给dom元素附加指定的行为或转换（dom元素的crud）</p>
+<pre><code>angular有许多内置的指令，ngBind,ngModel,ngClass,ngClass.很像控制器和服务，你也可以创建自己的。
+当Angular引导你的程序的时候，Compiler会遍历dom树去匹配指令附加指令的功能到dom元素。
+
+编译语言：
+    C,C++这些编译代码为汇编或二进制代码的语言。
+</code></pre><font size="6" color="#6633cc">匹配指令</font>
+
+<p>在我们写指令之前，我们首先需要知道angular的compiler怎么决定是否使用指定的指令。</p>
+<p>和元素选择器很类似。我们可以说一个元素匹配一个指令，当指令是他声明的一部分。</p>
+<p>下面这些都匹配了ng-model</p>
+<p><code>&lt;input ng-model=&quot;foo&quot;&gt;</code></p>
+<p><code>&lt;input data-ng-model=&quot;foo&quot;&gt;</code></p>
+<p>下面的匹配person<br><code>&lt;person&gt;&lt;/person&gt;</code></p>
+<font size="6" color="#6633cc">指令名称规范化</font>
+
+<p>angular 规范了标签和属性名，通过这些决定那个元素匹配那个指令。一般通过区分大小写的驼峰命名法来引用指令。因为HTML中是不区分大小写，我们在DOM中引用指令通过小写的格式，一般在dom元素上用横线分割。（ng-model）.<br>    规范化的过程是：</p>
+<pre><code>1.    抽掉 x- 和data-从元素或属性前面
+2.  转换 :,_或者-分割的名字到驼峰命名法。
+
+推荐使用ng-bind，当HTML验证的时候，用data-ng-bind。其他的方式都是历史遗留问题。
+</code></pre><font size="6" color="#6633cc">指令类型</font>
+
+<pre><code>编译器可以基于元素名，属性，类名，注释来匹配指令。
+</code></pre><p>下面是MyDir的四种用法<br><code>&lt;my-dir&gt;&lt;/my-dir&gt;</code><br><code>&lt;span my-dir=&quot;exp&quot;&gt;&lt;/span&gt;</code><br><code>&lt;!-- direvtive: my-dir exp--&gt;</code><br><code>&lt;span class=&quot;my-dir: exp;&quot;&gt;&lt;/span&gt;</code></p>
+<pre><code>一般推荐使用标签名或属性
+</code></pre><font size="6" color="#6633cc">创建指令</font>
+
+<p>首先看一下怎么注册指令。和控制器一样，指令也是注册在modeuls上面。使用module.directive创建指令。<br>    directive接受两个参数，<br>        第一个是规范化的指令名称，<br>        第二个是factory方法。</p>
+<p>这个工厂方法返回一个对象，这个对象上面有很多选项。这些选项告诉了编译    器怎么给匹配的元素增加行为。</p>
+<p>这个工厂方法只在第一次compiler匹配到的时候调用（invoke）。你可以在这里面处理一些初始化的方法。这个函数被 $injector.invoke调用注入。</p>
+<pre><code>最佳实践：
+    最好定义一些不容易冲突的指令名。例如，angular的内置变量都以ng开头。
+</code></pre><font size="6" color="#6633cc">模板扩展指令</font>
+
+<p>如果你有一块模板表示信息，出现了很多次。并且，当你在一个地方修改的时候，其他地方都需要修改。这种情况用指令可以加大的简化你的代码。</p>
+<p>compiler除了编译某个指令，还会编译指令模板里面的子指令。</p>
+<pre><code>最佳实践
+    除了html文件小，最好还是拆分为html模板文件，用templateUrl去引用。
+</code></pre><p>templateUrl也可以是函数，第一个参数是ele，第二个参数是属性。</p>
+<pre><code>restrict 有四个值
+    &apos;A&apos;,&quot;E&quot;,&quot;C&quot;,&quot;M&quot;
+
+最佳实践
+    标签名用在类似 dialog这种指令里。属性用在类似 drag这样的指令中。    
+</code></pre><font size="6" color="#6633cc">隔离的指令作用域</font>
+
+<p>   传统的，每个指令都需要外面包一个controller来提供scope。现在，<br>我们想要一个内外分离的，外部映射到内部的scope。<br>我们用 isolate scope来实现这个功能。<br>我们用scope属性来实现。</p>
+<pre><code>isolate scope隔离了所有的外部scope除了映射进来的。
+这样对构建可重用的组件很有用。
+
+scope是原型继承的。
+想创建可重用的组件的时候，要用scope属性
+</code></pre><font size="6" color="#6633cc">创建一个操作DOM的指令</font>
+
+
+<p>一般通过link这个选项，来让指令监听和操作dom。<br>link在模板clone后执行，指令的逻辑都存放在这里。</p>
+<pre><code>link 函数这样用
+</code></pre><p><code>function link(scope, element, attrs, controller, transcludeFn) { ... }</code></p>
+<pre><code>scope:
+    element: 指令匹配的那个jqLite包裹的元素。
+    attrs:属性
+    controller:
+    transcludeFn:
+
+
+directive 和controller一样，都可以使用以来注入。
+</code></pre><p>angular自己可以触发一些事件。当angular的compiler编译的元素销毁的时候，他就触发了一个 $desotry事件。和scope很类似，当scope销毁的时候，他就会广播一个$desoty事件。</p>
+<p>通过监听$destory事件，你可以手动删除一个事件监听，防止内存泄漏。<br>注册到scope和elment上面的回调函数可以自动清除，当scope和element销毁的时候。<br>如果你注册了一个回调函数在服务上，或者注册一个监听器在一个不会删除掉的元素的上面是，你需要手动去清除，以防止内存泄漏。</p>
+<font size="6" color="#6633cc">创建一个包含其他元素的指令</font>
+
+<p>transclude选项改变scope嵌入的方式。指令中的内容直接引用指令外的scope，而不是内部的。<br>有了他，就可以访问外部的scope。<br>    transclude属性对那些包裹随机内容的指令很有用。因为，只有这样他才不用去处理每一个内嵌内容需要的model。</p>
+<pre><code>最佳实践：
+    transclude：true，当你创建一个需要包裹随机内容给的指令的时候。
+
+    &amp;attr 适合向外映射一个行为，也就是方法。
+    =attr 映射一个字符串或对象。
+    通过向外映射方法，向外传递数据。
+</code></pre><font size="6" color="#6633cc">创建一个事件监听指令</font>
+
+<pre><code>通过link来添加事件和操作dom
+</code></pre><font size="6" color="#6633cc">创建一个交流用途的指令</font>
+
+<p>require</p>
+<p>^^这个前缀意味着：指令搜寻父元素的控制器。(一个^,在自己或父亲上面查找控制器。一个也没有，在自己上面找)<br>controller选项可以获取controller。</p>
+<p>当一个指令需要控制器的时候，link里面的第四个参数就是这个控制器。<br>如果require多个控制器，那么第四个参数是控制器的数据。</p>
+<pre><code>link和controller的关系：
+    controller可以暴露api接口方法。
+    link函数可以和controller交互，当有require的时候。
+
+最佳实践：
+    当你想暴露接口的时候，用controller
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular/" rel="tag">#angular</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/02/angular组件/" rel="prev" title="angular组件">
+                angular组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/02/angular/"
+           data-title="angular指令" data-url="http://yoursite.com/2016/08/02/angular/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Zeng Jin" />
+          <p class="site-author-name" itemprop="name">Zeng Jin</p>
+          <p class="site-description motion-element" itemprop="description">摆脱诱惑的唯一方式是臣服于诱惑……我能抗拒一切，除了诱惑。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zeng Jin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zjvirus"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

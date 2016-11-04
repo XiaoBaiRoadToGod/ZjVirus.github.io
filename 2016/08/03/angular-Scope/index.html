@@ -1,0 +1,807 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angular," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/avatar.jpg?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="Scope是什么    Scope 是一个对象，这个对象引用程序数据。他是表达式的执行上下文。Scope的层级结构和DOM结构很类似。Scope 可以监视 表达式和传播事件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular Scope">
+<meta property="og:url" content="http://yoursite.com/2016/08/03/angular-Scope/index.html">
+<meta property="og:site_name" content="小白 Blog">
+<meta property="og:description" content="Scope是什么    Scope 是一个对象，这个对象引用程序数据。他是表达式的执行上下文。Scope的层级结构和DOM结构很类似。Scope 可以监视 表达式和传播事件。">
+<meta property="og:updated_time" content="2016-11-02T13:09:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angular Scope">
+<meta name="twitter:description" content="Scope是什么    Scope 是一个对象，这个对象引用程序数据。他是表达式的执行上下文。Scope的层级结构和DOM结构很类似。Scope 可以监视 表达式和传播事件。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'ee227cbfc9b16ce16f59c0669c35acce',
+      author: 'ZjVirus'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/03/angular-Scope/"/>
+
+
+  <title> angular Scope | 小白 Blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小白 Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">善有善报 恶有恶报 不是不报 是你这个代码还有bug</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                angular Scope
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T10:45:03+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/angular-Scope/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/angular-Scope/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <font size="4">Scope是什么</font><br>    Scope 是一个对象，这个对象引用程序数据。他是表达式的执行上下文。Scope的层级结构和DOM结构很类似。Scope 可以监视 表达式和传播事件。<br><a id="more"></a><br><br><font size="4">Scope的特点</font><br>    scopees 提供API（$watch）观察模型的变化。<br>    scopes 提供API($apply)可以把模型的改变传播进视图从angular范围()的外面。<br>    Scopes可以内嵌来限制对属性的访问，也可以提供对共享模型属性的访问。<br>    内嵌的有 子socpe，也有 隔离scope。子scope可以从父scope继承    属性。隔离的scope不行。<br><br><font size="4">Scope作为数据模型</font><br>    Scope是控制器和视图的胶水。在模板link阶段，指令在scope上面设置了 $watch 表达式。这个$watch允许指令被通知属性的变化，这有允许指令渲染更新的值到dom里面。<br><br>控制器和指令都对scope有引用，但不是彼此。这个安排吧控制器从指令和dom中隔离开了。<br><br><br><font size="4">Scope 层级结构</font>
+
+<p>每一个angular应用程序，都只有一个Root scope，但可以有许多子 scope。<br>应用程序可以有很多scope。有些directive可以创建子scope。当新的scope创建的时候，他们被添加做父scope的孩子。这样一来，一个和dom结构平行类似的树形结构就创建出来了。</p>
+<p>当angular 执行的时候，他首先查找和指定元素有关联的scope。如果没有发现，查找父亲。。。直到找到 根scope。js中这种行为叫原型继承。</p>
+<pre><code>angular自动放置了一个 ng-scope类在和scope有关联的元素上面。
+</code></pre><p><font size="4">从dom元素获取scope</font><br>    Scopes以 $scpoe 的数据属性附加到DOM，可以以调试的目的获取。ng-app指定了根scope的附加元素。</p>
+<p>通过这个方法可以查看dom上附加的scope<br>    <code>angular.element($0).scope()</code>                </p>
+<p><font size="4">Scope的事件传播</font><br>     Scopes可以以类似DOM事件的方式传播事件。    事件可以 broadcated到scope孩子也可以emitted父亲。</p>
+<p><font size="4">Scope 生命循环</font><br>    自然流程里面，浏览器接受事件然后执行响应的回掉函数。一旦回调函数调用完成，浏览器会重新渲染dom，并且返回等待更多的事件。</p>
+<p>当浏览器调用angular执行上下文外面的js的时候，angular不知道model的修改。为了合适的模型修改，执行上下文必须进入angular的执行上下文，用$apply.只有在apply方法内部的模型修改，angular才会考虑在内。</p>
+<p>在评估表达式之后，apply方法处理了一个$digest.在$digest 阶段，scope测试所有的$watch表达式并且和前面的值对比。这个脏检查以异步的方式进行。这意味着一个赋值语句<code>$scope.username=&quot;angular&quot;</code> 不会立即引起$watch通知，代替$watch通知是延迟的知道$digest 阶段。这个延迟是需要的，因为聚合了多次的模型更新到一个 $watch通知里面。而且保证在$watch通知的时候没有其他$watch在运行。如果一个$watch改变了model的值，一次$digest 循环就会强制开始。</p>
+<pre><code>1.创建
+</code></pre><p>根scope在应用程序被$injector引导的时候创建。在模板连接的阶段，一些指令可以创建子scope。</p>
+<pre><code>2.watcher 注册
+</code></pre><p>在模板连接的时候，指令在scope上面注册了watch 。这些watches用来传播模型值到dom。</p>
+<pre><code>3.模型修改
+</code></pre><p>为了变化被检测到，你应该让他们在 apply里面。在控制器里面的同步工作，或者$http,$timeout,$interval里面的工作，系统都隐含的调用了$apply方法。    </p>
+<pre><code>4.变化观察器
+</code></pre><p>在$apply的最终阶段，angular会从根scope执行一个$digest 循环一直到遍及孩子scope。<br>在一个$digest循环中，所有被$watch的表达式都会检查一下模型的修改。如果模型修改了，$watch监听器就会被调用。</p>
+<pre><code>5.Scope销毁
+</code></pre><p>当子scope不在需要的时候，子scope的创建者调用scope.$destory()方法来销毁。<br>这样子scope就不会再进入digest循环，另外子scope的内存也会被垃圾回收器回收。</p>
+<p><font size="4">scopes和directives</font><br>    指令分为两类<br>    .观察指令(:) 例如{ { } }.用$watch注册了一个回调方法。当数据有变化的时候，这个指令会被通知，来更新视图。<br>    .监听器指令(:) ng-click，当dom 监听器fire的时候，指令执行有关的表达式，并且调用$apply来刷新视图。<br>    当而外的事件（例如用户行为，timer，xhr）,需要调用$apply 方法来触发所有的监听器。<font size="4">创建scope的指令</font><br>    ng-repeat,ng-controller.创建了新的子scope并且附加新子scope到响应的dom元素上面。</p>
+<p><font size="4">控制器和scopes</font><br>    控制器和scope以下面的方式交互<br>        .控制器用scope暴露方法到模板<br>        .控制器定义方法修改模型<br>        .控制器注册watcher</p>
+<p><font size="4">scope $watch性能考虑</font><br>    angular要做大量的脏检查。所有脏检查函数必须又要效率。里面不要访问dom，因为dom访问效率和直接访问js属性的效率差别很大。（成量级的差别。）    </p>
+<p><font size="4">$scope watch    深度</font><br>    .$watch(:)观察了引用<br>    .$watchCollection(:)观察了集合<br>    .$watch(,,true)(:)观察的最细致。每个值都能观察到<br>    用哪一种观察模式，根据情况判断。</p>
+<p><font size="4">和浏览器事件循环集成</font></p>
+<p><font size="3">事件循环</font><br>    1.浏览器的事件循环等待一个事件到来。一个事件就是用户的行为、timer事件，网络事件。<br>    2.事件的回调函数会执行。这就进入了js的上下文。这个回调函数可以修改DOM结构<br>    3.一旦回调执行完毕，浏览器离开js的上下文并且开始根据dom的变化重选渲染视图。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular/" rel="tag">#angular</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/03/angular理解控制器/" rel="next" title="angular理解控制器">
+                <i class="fa fa-chevron-left"></i> angular理解控制器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/03/angular-DI-依赖注入/" rel="prev" title="angular DI(依赖注入)">
+                angular DI(依赖注入) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/03/angular-Scope/"
+           data-title="angular Scope" data-url="http://yoursite.com/2016/08/03/angular-Scope/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Zeng Jin" />
+          <p class="site-author-name" itemprop="name">Zeng Jin</p>
+          <p class="site-description motion-element" itemprop="description">摆脱诱惑的唯一方式是臣服于诱惑……我能抗拒一切，除了诱惑。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zeng Jin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zjvirus"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
