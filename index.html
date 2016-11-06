@@ -1191,6 +1191,156 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/01/git-基本操作命令/" itemprop="url">
+                  git 基本操作命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-01T16:24:44+08:00" content="2016-08-01">
+              2016-08-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/01/git-基本操作命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/git-基本操作命令/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <font size="6">查看仓库版本</font>
+
+<pre><code>git status
+</code></pre><font size="6">提交文件到版本管理</font>
+
+<pre><code>git add 文件名
+git add . --把当前所有未加入暂存区的文件加入到暂存区
+</code></pre><font size="7">提交到版本库里面</font>
+
+<pre><code>git commit -m &quot;提交信息&quot;
+</code></pre><font size="7">查看提交信息</font>
+
+<pre><code>git log
+</code></pre><font size="7">回到某个版本</font>
+
+<pre><code>git reset 版本号 --hard
+git reset HEAD^ --hard ---回到上一个版本
+</code></pre><font size="7">回到历史某个版本</font>
+
+<pre><code>git checkout -- 文件名
+</code></pre><font size="7">克隆</font>
+
+<pre><code>git clone 仓库名称
+</code></pre><font size="7">推到仓库</font>
+
+<pre><code>git push
+</code></pre><font size="7">拉到本地</font>
+
+<pre><code>git pull
+</code></pre><font size="7">git 分支操作</font>
+
+<pre><code>查看分支：git branch
+
+创建分支：git branch &lt;name&gt;
+
+切换分支：git checkout &lt;name&gt;
+
+创建+切换分支：git checkout -b &lt;name&gt;
+
+合并某分支到当前分支：git merge &lt;name&gt;
+
+删除分支：git branch -d &lt;name&gt;
+</code></pre><font size="7">开发常用分支</font>
+
+<ul>
+<li>master —主分支，变动不怎么频繁</li>
+<li>dev —开发分支，我们的开发都是在上面做的</li>
+<li>feature —新功能的分支</li>
+<li>bug    —修改bug的分支</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1232,7 +1382,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1242,7 +1392,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

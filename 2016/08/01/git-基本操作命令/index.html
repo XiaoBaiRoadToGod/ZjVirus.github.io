@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="angular," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -84,16 +84,67 @@
 
 
 
-<meta name="description" content="这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……">
+<meta name="description" content="查看仓库版本
+
+git status
+提交文件到版本管理
+
+git add 文件名
+git add . --把当前所有未加入暂存区的文件加入到暂存区
+提交到版本库里面
+
+git commit -m &amp;quot;提交信息&amp;quot;
+查看提交信息
+
+git log
+回到某个版本
+
+git reset 版本号 --hard
+git reset HEAD^ --hard ---回到上一个版本
+回到历史某">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular指令">
-<meta property="og:url" content="http://yoursite.com/2016/08/02/angular/index.html">
+<meta property="og:title" content="git 基本操作命令">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/git-基本操作命令/index.html">
 <meta property="og:site_name" content="小白 Blog">
-<meta property="og:description" content="这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……">
-<meta property="og:updated_time" content="2016-11-04T13:47:27.000Z">
+<meta property="og:description" content="查看仓库版本
+
+git status
+提交文件到版本管理
+
+git add 文件名
+git add . --把当前所有未加入暂存区的文件加入到暂存区
+提交到版本库里面
+
+git commit -m &amp;quot;提交信息&amp;quot;
+查看提交信息
+
+git log
+回到某个版本
+
+git reset 版本号 --hard
+git reset HEAD^ --hard ---回到上一个版本
+回到历史某">
+<meta property="og:updated_time" content="2016-11-06T12:33:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular指令">
-<meta name="twitter:description" content="这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……">
+<meta name="twitter:title" content="git 基本操作命令">
+<meta name="twitter:description" content="查看仓库版本
+
+git status
+提交文件到版本管理
+
+git add 文件名
+git add . --把当前所有未加入暂存区的文件加入到暂存区
+提交到版本库里面
+
+git commit -m &amp;quot;提交信息&amp;quot;
+查看提交信息
+
+git log
+回到某个版本
+
+git reset 版本号 --hard
+git reset HEAD^ --hard ---回到上一个版本
+回到历史某">
 
 
 
@@ -114,10 +165,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/02/angular/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/01/git-基本操作命令/"/>
 
 
-  <title> angular指令 | 小白 Blog </title>
+  <title> git 基本操作命令 | 小白 Blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -371,7 +422,7 @@
   
   
 
-  <article class="post post-type-categories " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -382,7 +433,7 @@
             
             
               
-                angular指令
+                git 基本操作命令
               
             
           </h1>
@@ -394,8 +445,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T13:06:18+08:00" content="2016-08-02">
-              2016-08-02
+            <time itemprop="dateCreated" datetime="2016-08-01T16:24:44+08:00" content="2016-08-01">
+              2016-08-01
             </time>
           </span>
 
@@ -405,8 +456,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/02/angular/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/angular/" itemprop="commentsCount"></span>
+                <a href="/2016/08/01/git-基本操作命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/git-基本操作命令/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -429,101 +480,57 @@
       
 
       
-        <font size="4">    这段时间学习了angularJS，做了简单的梳理，并记录了下来，以便于以后的查看，如有不正确的地方，希望能够指正……</font><br><br><a id="more"></a><br><font size="6" color="#6633cc">指令是什么</font>
+        <font size="6">查看仓库版本</font>
 
-<p>第一：是一个dom元素标记（元素名，属性，css类，注释）<br>第二：让编译器（compiler）给dom元素附加指定的行为或转换（dom元素的crud）</p>
-<pre><code>angular有许多内置的指令，ngBind,ngModel,ngClass,ngClass.很像控制器和服务，你也可以创建自己的。
-当Angular引导你的程序的时候，Compiler会遍历dom树去匹配指令附加指令的功能到dom元素。
+<pre><code>git status
+</code></pre><font size="6">提交文件到版本管理</font>
 
-编译语言：
-    C,C++这些编译代码为汇编或二进制代码的语言。
-</code></pre><font size="6" color="#6633cc">匹配指令</font>
+<pre><code>git add 文件名
+git add . --把当前所有未加入暂存区的文件加入到暂存区
+</code></pre><font size="7">提交到版本库里面</font>
 
-<p>在我们写指令之前，我们首先需要知道angular的compiler怎么决定是否使用指定的指令。</p>
-<p>和元素选择器很类似。我们可以说一个元素匹配一个指令，当指令是他声明的一部分。</p>
-<p>下面这些都匹配了ng-model</p>
-<p><code>&lt;input ng-model=&quot;foo&quot;&gt;</code></p>
-<p><code>&lt;input data-ng-model=&quot;foo&quot;&gt;</code></p>
-<p>下面的匹配person<br><code>&lt;person&gt;&lt;/person&gt;</code></p>
-<font size="6" color="#6633cc">指令名称规范化</font>
+<pre><code>git commit -m &quot;提交信息&quot;
+</code></pre><font size="7">查看提交信息</font>
 
-<p>angular 规范了标签和属性名，通过这些决定那个元素匹配那个指令。一般通过区分大小写的驼峰命名法来引用指令。因为HTML中是不区分大小写，我们在DOM中引用指令通过小写的格式，一般在dom元素上用横线分割。（ng-model）.<br>    规范化的过程是：</p>
-<pre><code>1.    抽掉 x- 和data-从元素或属性前面
-2.  转换 :,_或者-分割的名字到驼峰命名法。
+<pre><code>git log
+</code></pre><font size="7">回到某个版本</font>
 
-推荐使用ng-bind，当HTML验证的时候，用data-ng-bind。其他的方式都是历史遗留问题。
-</code></pre><font size="6" color="#6633cc">指令类型</font>
+<pre><code>git reset 版本号 --hard
+git reset HEAD^ --hard ---回到上一个版本
+</code></pre><font size="7">回到历史某个版本</font>
 
-<pre><code>编译器可以基于元素名，属性，类名，注释来匹配指令。
-</code></pre><p>下面是MyDir的四种用法<br><code>&lt;my-dir&gt;&lt;/my-dir&gt;</code><br><code>&lt;span my-dir=&quot;exp&quot;&gt;&lt;/span&gt;</code><br><code>&lt;!-- direvtive: my-dir exp--&gt;</code><br><code>&lt;span class=&quot;my-dir: exp;&quot;&gt;&lt;/span&gt;</code></p>
-<pre><code>一般推荐使用标签名或属性
-</code></pre><font size="6" color="#6633cc">创建指令</font>
+<pre><code>git checkout -- 文件名
+</code></pre><font size="7">克隆</font>
 
-<p>首先看一下怎么注册指令。和控制器一样，指令也是注册在modeuls上面。使用module.directive创建指令。<br>    directive接受两个参数，<br>        第一个是规范化的指令名称，<br>        第二个是factory方法。</p>
-<p>这个工厂方法返回一个对象，这个对象上面有很多选项。这些选项告诉了编译    器怎么给匹配的元素增加行为。</p>
-<p>这个工厂方法只在第一次compiler匹配到的时候调用（invoke）。你可以在这里面处理一些初始化的方法。这个函数被 $injector.invoke调用注入。</p>
-<pre><code>最佳实践：
-    最好定义一些不容易冲突的指令名。例如，angular的内置变量都以ng开头。
-</code></pre><font size="6" color="#6633cc">模板扩展指令</font>
+<pre><code>git clone 仓库名称
+</code></pre><font size="7">推到仓库</font>
 
-<p>如果你有一块模板表示信息，出现了很多次。并且，当你在一个地方修改的时候，其他地方都需要修改。这种情况用指令可以加大的简化你的代码。</p>
-<p>compiler除了编译某个指令，还会编译指令模板里面的子指令。</p>
-<pre><code>最佳实践
-    除了html文件小，最好还是拆分为html模板文件，用templateUrl去引用。
-</code></pre><p>templateUrl也可以是函数，第一个参数是ele，第二个参数是属性。</p>
-<pre><code>restrict 有四个值
-    &apos;A&apos;,&quot;E&quot;,&quot;C&quot;,&quot;M&quot;
+<pre><code>git push
+</code></pre><font size="7">拉到本地</font>
 
-最佳实践
-    标签名用在类似 dialog这种指令里。属性用在类似 drag这样的指令中。    
-</code></pre><font size="6" color="#6633cc">隔离的指令作用域</font>
+<pre><code>git pull
+</code></pre><font size="7">git 分支操作</font>
 
-<p>   传统的，每个指令都需要外面包一个controller来提供scope。现在，<br>我们想要一个内外分离的，外部映射到内部的scope。<br>我们用 isolate scope来实现这个功能。<br>我们用scope属性来实现。</p>
-<pre><code>isolate scope隔离了所有的外部scope除了映射进来的。
-这样对构建可重用的组件很有用。
+<pre><code>查看分支：git branch
 
-scope是原型继承的。
-想创建可重用的组件的时候，要用scope属性
-</code></pre><font size="6" color="#6633cc">创建一个操作DOM的指令</font>
+创建分支：git branch &lt;name&gt;
 
+切换分支：git checkout &lt;name&gt;
 
-<p>一般通过link这个选项，来让指令监听和操作dom。<br>link在模板clone后执行，指令的逻辑都存放在这里。</p>
-<pre><code>link 函数这样用
-</code></pre><p><code>function link(scope, element, attrs, controller, transcludeFn) { ... }</code></p>
-<pre><code>scope:
-    element: 指令匹配的那个jqLite包裹的元素。
-    attrs:属性
-    controller:
-    transcludeFn:
+创建+切换分支：git checkout -b &lt;name&gt;
 
+合并某分支到当前分支：git merge &lt;name&gt;
 
-directive 和controller一样，都可以使用以来注入。
-</code></pre><p>angular自己可以触发一些事件。当angular的compiler编译的元素销毁的时候，他就触发了一个 $desotry事件。和scope很类似，当scope销毁的时候，他就会广播一个$desoty事件。</p>
-<p>通过监听$destory事件，你可以手动删除一个事件监听，防止内存泄漏。<br>注册到scope和elment上面的回调函数可以自动清除，当scope和element销毁的时候。<br>如果你注册了一个回调函数在服务上，或者注册一个监听器在一个不会删除掉的元素的上面是，你需要手动去清除，以防止内存泄漏。</p>
-<font size="6" color="#6633cc">创建一个包含其他元素的指令</font>
+删除分支：git branch -d &lt;name&gt;
+</code></pre><font size="7">开发常用分支</font>
 
-<p>transclude选项改变scope嵌入的方式。指令中的内容直接引用指令外的scope，而不是内部的。<br>有了他，就可以访问外部的scope。<br>    transclude属性对那些包裹随机内容的指令很有用。因为，只有这样他才不用去处理每一个内嵌内容需要的model。</p>
-<pre><code>最佳实践：
-    transclude：true，当你创建一个需要包裹随机内容给的指令的时候。
+<ul>
+<li>master —主分支，变动不怎么频繁</li>
+<li>dev —开发分支，我们的开发都是在上面做的</li>
+<li>feature —新功能的分支</li>
+<li>bug    —修改bug的分支</li>
+</ul>
 
-    &amp;attr 适合向外映射一个行为，也就是方法。
-    =attr 映射一个字符串或对象。
-    通过向外映射方法，向外传递数据。
-</code></pre><font size="6" color="#6633cc">创建一个事件监听指令</font>
-
-<pre><code>通过link来添加事件和操作dom
-</code></pre><font size="6" color="#6633cc">创建一个交流用途的指令</font>
-
-<p>require</p>
-<p>^^这个前缀意味着：指令搜寻父元素的控制器。(一个^,在自己或父亲上面查找控制器。一个也没有，在自己上面找)<br>controller选项可以获取controller。</p>
-<p>当一个指令需要控制器的时候，link里面的第四个参数就是这个控制器。<br>如果require多个控制器，那么第四个参数是控制器的数据。</p>
-<pre><code>link和controller的关系：
-    controller可以暴露api接口方法。
-    link函数可以和controller交互，当有require的时候。
-
-最佳实践：
-    当你想暴露接口的时候，用controller
-</code></pre>
       
     </div>
 
@@ -545,7 +552,7 @@ directive 和controller一样，都可以使用以来注入。
       
         <div class="post-tags">
           
-            <a href="/tags/angular/" rel="tag">#angular</a>
+            <a href="/tags/git/" rel="tag">#git</a>
           
         </div>
       
@@ -554,16 +561,12 @@ directive 和controller一样，都可以使用以来注入。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/01/git-基本操作命令/" rel="next" title="git 基本操作命令">
-                <i class="fa fa-chevron-left"></i> git 基本操作命令
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/02/angular组件/" rel="prev" title="angular组件">
-                angular组件 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/02/angular/" rel="prev" title="angular指令">
+                angular指令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -590,8 +593,8 @@ directive 和controller一样，都可以使用以来注入。
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/02/angular/"
-           data-title="angular指令" data-url="http://yoursite.com/2016/08/02/angular/">
+      <div class="ds-thread" data-thread-key="2016/08/01/git-基本操作命令/"
+           data-title="git 基本操作命令" data-url="http://yoursite.com/2016/08/01/git-基本操作命令/">
       </div>
     
   </div>
